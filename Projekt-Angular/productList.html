@@ -1,0 +1,8 @@
+<p>Właściciel : <span class="name">{{$ctrl.item.owner}}</span></p>
+<p>Nazwa listy :<span class="name">{{$ctrl.item.name}}</span></p>
+<button class="btn" ng-click="$ctrl.item.isVisible=!$ctrl.item.isVisible" ng-show="!$ctrl.item.isVisible">Pokaż</button>
+<button class="btn" ng-click="$ctrl.item.isVisible=!$ctrl.item.isVisible" ng-show="$ctrl.item.isVisible">Ukryj</button>
+<div ng-show="$ctrl.item.isVisible">
+	<product-details ng-repeat="product in $ctrl.item.products" product="product" on-delete="$ctrl.deleteProduct(product)" on-update="$ctrl.updateProduct(product, prop, value)"></product-details>
+</div>
+<button ng-click="$ctrl.delete(item)">Delete</button>
