@@ -5,4 +5,4 @@
 <div ng-show="$ctrl.item.isVisible">
 	<product-details ng-repeat="product in $ctrl.item.products" product="product" on-delete="$ctrl.deleteProduct(product)" on-update="$ctrl.updateProduct(product, prop, value)"></product-details>
 </div>
-<button ng-click="$ctrl.delete(item)">Delete</button>
+<button ng-click="$ctrl.delete()">Delete</button>

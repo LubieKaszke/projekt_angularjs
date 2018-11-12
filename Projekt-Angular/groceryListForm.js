@@ -1,8 +1,20 @@
 (function(angular) {
   'use strict';
-function GroceryListFormController() {
+function GroceryListFormController(groceryListService) {
   var ctrl=this;
-  console.log(ctrl.name);
+  
+  ctrl.postObject = { owner:"", listName: "" };
+  
+  ctrl.submitList = function() {
+	  ctrl.postObject.owner = ctrl.owner;
+	  ctrl.postObject.listName = ctrl.name;
+	  groceryListService.post(
+                    function () {
+                    },
+                    function () {
+                    },
+                    JSON.stringify(ctrl.postObject));
+  }
 }
 
 angular.module('myApp').component('groceryListForm', {

@@ -22,6 +22,22 @@ angular.module('myApp').factory('groceryListService', ['$http', '$log', function
         );
     };
 	
+	factory.postObject = function (success, fail, object) {
+        $http.post(apiUrl + "/addList", object).then(
+            function (response) {
+                $log.log(response);
+                if (success)
+                    success(response.data);
+            },
+            function (response) {
+                $log.log(response);
+
+                if (fail)
+                    fail(response);
+            }
+        );
+    };
+	
 	return factory;
 }])
 })(window.angular);

@@ -6,16 +6,16 @@ function GroceryListController(groceryListService) {
 	ctrl.groceryList = [];
 	
 	ctrl.getGroceryLists = function (list) {
-            ctrl.groceryList = list;
-        };
+        ctrl.groceryList = list;
+    };
 
-        ctrl.refreshGroceryLists = function(){
-            groceryListService.getAllLists(ctrl.getGroceryLists);
-        };
+    ctrl.refreshGroceryLists = function(){
+        groceryListService.getAllLists(ctrl.getGroceryLists);
+    };
 
-        ctrl.$onInit=function(){
-            ctrl.refreshGroceryLists();
-        };
+    ctrl.$onInit=function(){
+        ctrl.refreshGroceryLists();
+    };
 }
 
 angular.module('myApp').component('groceryList', {
