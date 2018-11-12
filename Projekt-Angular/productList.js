@@ -9,7 +9,7 @@ function ProductListController($scope, $element, $attrs) {
   };
 
   ctrl.deleteList = function(product) {
-    var idx = ctrl.item.indexOf(product);
+    var idx = ctrl.item.products.indexOf(product);
     if (idx >= 0) {
       ctrl.item.splice(idx, 1);
     }

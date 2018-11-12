@@ -1,10 +1,11 @@
 (function(angular) {
   'use strict';
-function ProductDetailController() {
+function ProductDetailController($element, $scope) {
   var ctrl = this;
 
-  ctrl.delete = function(product) {
-    ctrl.onDelete({product: ctrl.product});
+  ctrl.delete = function() {
+	  $element.remove();
+	  $scope.$destroy();
   };
 
   ctrl.update = function(prop, value) {
