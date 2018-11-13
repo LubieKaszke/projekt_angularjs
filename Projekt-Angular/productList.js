@@ -1,6 +1,6 @@
 (function(angular) {
   'use strict';
-function ProductListController($scope, $element, $attrs) {
+function ProductListController(groceryListService) {
   var ctrl = this;
 
 
@@ -9,8 +9,20 @@ function ProductListController($scope, $element, $attrs) {
   };
   
   ctrl.delete = function() {
-	  $element.remove();
-	  $scope.$destroy();
+    var idx = ctrl.list.indexOf(ctrl.item);
+    console.log(idx);
+    groceryListService.deleteObject(
+                        function(){
+
+                        },
+                        function(){
+
+                        },
+              idx);
+
+            
+	  // $element.remove();
+	  // $scope.$destroy();
   }
   
   ctrl.deleteList = function(product) {
@@ -25,7 +37,8 @@ angular.module('myApp').component('productList', {
   templateUrl: 'productList.html',
   controller: ProductListController,
   bindings: {
-    item: '=?'
+    item: '=?',
+    list:'<'
   }
 });
 })(window.angular);

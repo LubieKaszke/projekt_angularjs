@@ -37,6 +37,22 @@ angular.module('myApp').factory('groceryListService', ['$http', '$log', function
             }
         );
     };
+
+    factory.deleteObject = function(success,fail,object){
+        $http.delete(apiUrl +"/deleteList/" + object).then(
+                        function (response) {
+                $log.log(response);
+                if (success)
+                    success(response.data);
+            },
+            function (response) {
+                $log.log(response);
+
+                if (fail)
+                    fail(response);
+            }
+            );
+    };
 	
 	return factory;
 }])

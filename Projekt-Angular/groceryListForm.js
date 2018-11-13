@@ -15,8 +15,6 @@ function GroceryListFormController(groceryListService) {
                     function () {
                     },
                     JSON.stringify(ctrl.postObject));
-    ctrl.$setPristine();
-
   }
 
           ctrl.$onInit = function () {
