@@ -1,6 +1,6 @@
 <h1>List form</h1>
-<form ng-submit="$ctrl.submitList()">
-Enter Name: <input type="text" ng-model="$ctrl.name">
+<form name="List" ng-submit="$ctrl.submitList()">
+Enter Name: <input type="text"required validation ng-model="$ctrl.name" >
 Enter Owner: <input type="text" ng-model="$ctrl.owner">
    <input type="submit" value="Submit">
  </form>

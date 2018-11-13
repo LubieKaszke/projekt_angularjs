@@ -25,7 +25,7 @@ angular.module('myApp').component('productList', {
   templateUrl: 'productList.html',
   controller: ProductListController,
   bindings: {
-    item: '='
+    item: '=?'
   }
 });
 })(window.angular);

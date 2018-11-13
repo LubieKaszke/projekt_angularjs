@@ -8,21 +8,31 @@ function GroceryListFormController(groceryListService) {
   ctrl.submitList = function() {
 	  ctrl.postObject.owner = ctrl.owner;
 	  ctrl.postObject.listName = ctrl.name;
-	  groceryListService.post(
-                    function () {
+	  groceryListService.postObject(
+                    function () {   
+                      
                     },
                     function () {
                     },
                     JSON.stringify(ctrl.postObject));
+    ctrl.$setPristine();
+
   }
+
+          ctrl.$onInit = function () {
+                ctrl.postObject = { owner:"", listName: "" };
+
+        };
 }
+
 
 angular.module('myApp').component('groceryListForm', {
   templateUrl: 'groceryListForm.html',
   controller: GroceryListFormController,
       bindings: {
-        name: '=',
-        owner: '='
+        name: '=?',
+        owner: '=?',
+        refreshList: '='
     }
 });
 })(window.angular);

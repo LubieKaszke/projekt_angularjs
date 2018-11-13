@@ -3,6 +3,6 @@
 <button class="btn" ng-click="$ctrl.item.isVisible=!$ctrl.item.isVisible" ng-show="!$ctrl.item.isVisible">Pokaż</button>
 <button class="btn" ng-click="$ctrl.item.isVisible=!$ctrl.item.isVisible" ng-show="$ctrl.item.isVisible">Ukryj</button>
 <div ng-show="$ctrl.item.isVisible">
-	<product-details ng-repeat="product in $ctrl.item.products" product="product" on-delete="$ctrl.deleteProduct(product)" on-update="$ctrl.updateProduct(product, prop, value)"></product-details>
+	<product-details ng-repeat="product in $ctrl.item.products | orderBy:'name'"  product="product" on-delete="$ctrl.deleteProduct(product)" on-update="$ctrl.updateProduct(product, prop, value)"></product-details>
 </div>
 <button ng-click="$ctrl.delete()">Delete</button>
