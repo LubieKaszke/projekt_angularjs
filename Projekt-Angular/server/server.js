@@ -30,7 +30,8 @@ app.post('/addListProduct', function (req, res) {
    // First read existing users.
    fs.readFile( __dirname + "/" + "lists.json", 'utf8', function (err, data) {
       data = JSON.parse( data );
-      data[req.body.index].products.push({"product": req.body.product, "done": false});
+      // console.log(data);
+      data[req.body.listIndex].products.push({"name": req.body.name,"desc":req.body.desc, "done": false});
       fs.writeFile( __dirname + "/" + "lists.json", JSON.stringify(data), function(err) {
         if (err) throw err;
         console.log('Data updated');
