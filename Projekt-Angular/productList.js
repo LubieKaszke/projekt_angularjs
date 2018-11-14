@@ -5,7 +5,19 @@ function ProductListController(groceryListService) {
 
 
   ctrl.updateProduct = function(product, prop, value) {
+    var updateObject = {listIndex: "", prodIndex: "", value: ""}
+    updateObject.listIndex = ctrl.list.indexOf(ctrl.item);
+    updateObject.prodIndex = ctrl.item.products.indexOf(product);
+    updateObject.value = value;
     product[prop] = value;
+    groceryListService.editObjectDesc(
+                        function(){
+
+                        },
+                        function(){
+
+                        },
+              JSON.stringify(updateObject));
   };
   
   ctrl.delete = function() {
@@ -19,18 +31,9 @@ function ProductListController(groceryListService) {
 
                         },
               idx);
-
-            
 	  // $element.remove();
 	  // $scope.$destroy();
   }
-  
-  ctrl.deleteList = function(product) {
-    var idx = ctrl.item.indexOf(product);
-    if (idx >= 0) {
-      ctrl.item.splice(idx, 1);
-    }
-  };
 }
 
 angular.module('myApp').component('productList', {

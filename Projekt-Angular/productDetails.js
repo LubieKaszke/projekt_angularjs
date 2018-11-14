@@ -1,11 +1,21 @@
 (function(angular) {
   'use strict';
-function ProductDetailController($element, $scope) {
+function ProductDetailController($element, $scope, groceryListService) {
   var ctrl = this;
 
   ctrl.delete = function() {
-	  $element.remove();
-	  $scope.$destroy();
+    var listIndex = ctrl.list.indexOf(ctrl.item);
+    var productIndex = ctrl.item.products.indexOf(ctrl.product);
+    groceryListService.deleteObjectProduct(
+                        function(){
+                          $element.remove();
+                          $scope.$destroy();
+                        },
+                        function(){
+
+                        },
+              listIndex,
+              productIndex);
   };
 
   ctrl.update = function(prop, value) {
@@ -19,7 +29,10 @@ angular.module('myApp').component('productDetails', {
   bindings: {
     product: '=',
     onDelete: '&',
-    onUpdate: '&'
+    onUpdate: '&',
+    list: '<',
+    item: '<',
+    refresh: '='
   }
 });
 })(window.angular);

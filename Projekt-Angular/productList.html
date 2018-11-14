@@ -5,6 +5,7 @@
 	<button class="btn" ng-click="$ctrl.item.isVisible=!$ctrl.item.isVisible" ng-show="$ctrl.item.isVisible">Ukryj</button>
 </div>
 <div ng-show="$ctrl.item.isVisible">
-	<product-details ng-repeat="product in $ctrl.item.products | orderBy:'name'"  product="product" on-delete="$ctrl.deleteProduct(product)" on-update="$ctrl.updateProduct(product, prop, value)"></product-details>
+	<product-details ng-repeat="product in $ctrl.item.products | orderBy:'name'"  product="product" list="$ctrl.list" item="$ctrl.item" on-delete="$ctrl.deleteProduct(product)" on-update="$ctrl.updateProduct(product, prop, value)"></product-details>
+	<product-form list="$ctrl.list" item="$ctrl.item"></product-form>
 </div>
 <button class="btn" ng-click="$ctrl.delete()">Delete</button>

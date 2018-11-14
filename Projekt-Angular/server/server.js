@@ -39,6 +39,19 @@ app.post('/addListProduct', function (req, res) {
    });
 })
 
+app.post('/editListProduct', function (req, res) {
+   // First read existing users.
+   fs.readFile( __dirname + "/" + "lists.json", 'utf8', function (err, data) {
+      data = JSON.parse( data );
+      data[req.body.listIndex].products[req.body.prodIndex].desc = req.body.value;
+      fs.writeFile( __dirname + "/" + "lists.json", JSON.stringify(data), function(err) {
+        if (err) throw err;
+        console.log('Data updated');
+      });
+      res.send(data);
+   });
+})
+
 app.delete('/deleteListProduct', function (req, res) {
    // First read existing users.
    fs.readFile( __dirname + "/" + "lists.json", 'utf8', function (err, data) {

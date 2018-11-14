@@ -53,6 +53,38 @@ angular.module('myApp').factory('groceryListService', ['$http', '$log', function
             }
             );
     };
+
+    factory.deleteObjectProduct = function(success,fail,listIdx,productIdx){
+        $http.delete(apiUrl +"/deleteListProduct?listIndex=" + listIdx + "&productIndex=" + productIdx).then(
+                        function (response) {
+                $log.log(response);
+                if (success)
+                    success(response.data);
+            },
+            function (response) {
+                $log.log(response);
+
+                if (fail)
+                    fail(response);
+            }
+            );
+    };
+
+    factory.editObjectDesc = function(success,fail,object) {
+        $http.post(apiUrl + "/editListProduct", object).then(
+                        function (response) {
+                $log.log(response);
+                if (success)
+                    success(response.data);
+            },
+            function (response) {
+                $log.log(response);
+
+                if (fail)
+                    fail(response);
+            }
+            );
+    }
 	
 	return factory;
 }])
