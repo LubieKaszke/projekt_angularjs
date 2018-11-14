@@ -8,14 +8,14 @@ function ProductDetailController($element, $scope, groceryListService) {
     var productIndex = ctrl.item.products.indexOf(ctrl.product);
     groceryListService.deleteObjectProduct(
                         function(){
-                          $element.remove();
-                          $scope.$destroy();
+                          ctrl.refresh();
                         },
                         function(){
 
                         },
               listIndex,
               productIndex);
+    
   };
 
   ctrl.update = function(prop, value) {

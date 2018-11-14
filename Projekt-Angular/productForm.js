@@ -13,7 +13,7 @@ function ProductFormController(groceryListService) {
     ctrl.postProduct.listIndex = idx;
 	  groceryListService.postProduct(
                     function () {   
-                      
+                      ctrl.refresh();
                     },
                     function () {
                     },
@@ -34,7 +34,8 @@ angular.module('myApp').component('productForm', {
         name: '=?',
         desc: '=?',
         item: '=?',
-        list: '=?'
+        list: '=?',
+        refresh: '='
     }
 });
 })(window.angular);
