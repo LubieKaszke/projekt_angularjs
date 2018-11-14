@@ -15,6 +15,8 @@ function GroceryListFormController(groceryListService) {
                     function () {
                     },
                     JSON.stringify(ctrl.postObject));
+    ctrl.owner="";
+    ctrl.name="";
   }
 
           ctrl.$onInit = function () {
