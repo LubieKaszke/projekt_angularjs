@@ -1,6 +1,7 @@
 body{
-	background-color: #646966;
+	background-color: #4d4d4d;
 	font-family: 'Roboto', sans-serif;
+	margin:0;
 }
 
 
@@ -11,38 +12,45 @@ body{
 }
 
 .productList{
+	vertical-align: top;
 	display: inline-block;
-	background-color: #fcffb8;
+	background-color: #a1b9bd;
 	margin:20px;
 	padding:20px;
 	min-height: 200px;
 	min-width: 200px;
 	border-radius: 25px;
 	color:#484c4a;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
 }
 
 .btn{
 	font-family: 'Roboto', sans-serif;
 	color:white;
-	background-color: #5E83FF;
-	padding: 5px;
 	border-style: none;
 	margin:10px;
 	font-size:16px;
+	background-color: #6d5b97;
+ 	padding: 10px 15px;
+ 	border-radius: 4px;
 }
 
 .btn:hover{
-	background-color: #2D4348;
+	background-color: #86af49;
 }
 
 input{
 	font-family: 'Roboto', sans-serif;
 	padding: 10px 20px;
     margin: 5px 0;
-    display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    display: block;
+}
+
+.chexbox{
+	display: inline-block;
 }
 
 .product_name{
@@ -58,4 +66,65 @@ input{
 .name{
 	font-weight: 500;
 	margin-left: 10px;
+}
+
+.header{
+
+	height: 150px;
+	background-color: #6d5b97;
+	color:white;
+		font-weight: 700;
+	font-size: 22px;
+
+
+}
+ h1{
+ 	margin:0;
+ 	padding: 20px;
+ 	margin-left: 20px;
+
+ }
+
+ a{
+ 	font-family: 'Roboto', sans-serif;
+ 	color: white;
+ 	font-size: 18px;
+ }
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    background-color: #86af49;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+ .abtn{
+ 	background-color: #4d4d4d;
+ 	padding: 15px 25px;
+ 	border-radius: 4px;
+ 	margin:10px;
+ }
+
+ .container{
+ 	display: flex;
+ }
+
+ .listForm{
+	display: block;
+	box-sizing:border-box;
+ }
+.col1{
+	padding: 20px;
+	border-right: 2px solid #313131;
+	border-radius: 2px;
+	margin:20px;
 }

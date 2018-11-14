@@ -1,6 +1,6 @@
 <div>
 	<span class="product_name" ng-class="{'had-done': $ctrl.product.done}"> {{$ctrl.product.name}}</span>
-	<input type="checkbox" ng-model="$ctrl.product.done" /><br>
+	<input class="chexbox" type="checkbox" ng-model="$ctrl.product.done"/><br>
   <span class="desc">Description:<span> <editable-field field-value="$ctrl.product.desc" field-type="text" on-update="$ctrl.update('desc', value)"></editable-field><br>
   <button class="btn" ng-click="$ctrl.delete()">Delete</button>
 </div>

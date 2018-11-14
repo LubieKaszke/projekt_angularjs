@@ -8,7 +8,7 @@ var app=angular.module('myApp', ["ngRoute"])
         template: '<grocery-list></grocery-list>'
     })
        .when("/add",{
-        template: '<grocery-list-form></grocery-list-form>'
+        template: ' <div class="container"><div class="col1"><grocery-list-form class="listForm"></grocery-list-form></div><div class="col"><grocery-list></grocery-list></div></div>'
     });
 
 app.directive('validation', function () {
