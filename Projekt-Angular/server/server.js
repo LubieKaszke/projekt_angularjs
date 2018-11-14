@@ -17,7 +17,7 @@ app.post('/addList', function (req, res) {
    // First read existing users.
    fs.readFile( __dirname + "/" + "lists.json", 'utf8', function (err, data) {
       data = JSON.parse( data );
-      data.push({"owner":req.body.owner, "name":req.body.listName, "isVisible":true, "products":[]});
+      data.push({"owner":req.body.owner, "name":req.body.listName, "isVisible":false, "products":[]});
       fs.writeFile( __dirname + "/" + "lists.json", JSON.stringify(data), function(err) {
         if (err) throw err;
         console.log('Data updated');
@@ -62,6 +62,7 @@ app.delete('/deleteListProduct', function (req, res) {
         if (err) throw err;
         console.log('Data updated');
       });
+      res.send(data);
    });
 })
 
@@ -75,8 +76,8 @@ app.delete('/deleteList/:idx', function (req, res) {
       fs.writeFile( __dirname + "/" + "lists.json", JSON.stringify(data), function(err) {
         if (err) throw err;
         console.log('Data updated');
-        
       });
+      res.send(data);
    });
 })
 

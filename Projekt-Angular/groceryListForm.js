@@ -15,6 +15,10 @@ function GroceryListFormController(groceryListService) {
                     function () {
                     },
                     JSON.stringify(ctrl.postObject));
+    ctrl.owner="";
+    ctrl.name="";
+    window.location.href="#!lists";
+    window.location.reload(true);
   }
 
           ctrl.$onInit = function () {

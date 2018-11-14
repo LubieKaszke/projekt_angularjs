@@ -12,27 +12,25 @@ function ProductListController(groceryListService) {
     product[prop] = value;
     groceryListService.editObjectDesc(
                         function(){
-
+                          ctrl.refresh();
                         },
                         function(){
 
                         },
               JSON.stringify(updateObject));
+    
   };
   
   ctrl.delete = function() {
     var idx = ctrl.list.indexOf(ctrl.item);
-    console.log(idx);
     groceryListService.deleteObject(
                         function(){
-
+                          ctrl.refresh();
                         },
                         function(){
 
                         },
               idx);
-	  // $element.remove();
-	  // $scope.$destroy();
   }
 }
 
@@ -41,7 +39,8 @@ angular.module('myApp').component('productList', {
   controller: ProductListController,
   bindings: {
     item: '=?',
-    list:'<'
+    list:'<',
+    refresh: '='
   }
 });
 })(window.angular);
